@@ -1,0 +1,70 @@
+#!/bin/sh
+
+installdir=
+
+if [ "$#" -gt 0 ]; then
+  installdir=$1
+fi
+
+if [ "x${installdir}" = "x"]; then
+  # Home, I guess.
+  if [ "x${HOME}" != "x" ]; then
+    installdir=$HOME
+  fi
+
+  if [ "x${installdir}" = "x"]; then
+    echo "Can't figure out where to setup your yakshed."
+    echo "Tell me: ./setup <installdir>"
+    exit 1
+  fi
+fi
+
+stampfile="${installdir}/.spooncherry"
+
+if [ -f ${stampfile} ]; then
+  echo "Already setup. Try deleting ${stampfile} to reset or reconcile it yourself."
+  exit 1
+fi
+
+echo "Installing to: ${installdir}.."
+
+# Vim setup
+if [ -x /usr/bin/vim ]; then
+  echo "Installing vimrc..."
+  cp -rv vim/vimrc ${installdir}/.vimrc
+  mkdir -p ${installdir}/.vim/autoload
+  cp -rv vim/plug.vim ${installdir}/.vim/autoload
+  vim +PlugInstall +xa
+fi
+
+# Fonts setup
+echo "Installing fonts.."
+mkdir -p ${installdir}/.fonts
+cp -rv fonts/terminess/*.pcf.gz ${installdir}/.fonts
+xset fp+ ${installdir}/.fonts
+xset fp rehash
+
+# xsession
+echo "Instaling xorg files.."
+cp -v xorg/xsession ~/.xsession
+cp -v xorg/xdefaults ~/.Xdefaults
+
+# awesoem
+echo "Installing awesome config.."
+mkdir -p ${installdir}/.config
+cp -rv awesome ${installdir}/.config
+
+## Vicious widgets
+(
+  cd ${installdir}/.config/awesome
+  git clone https://github.com/Mic92/vicious.git
+  cd vicious
+  git reset --hard 'v2.3.1'
+)
+
+# backgrounds
+echo "Installing backgrounds.."
+mkdir -p ${installdir}/backgrounds
+cp -rv backgrounds/* ${installdir}/backgrounds/
+
+echo "Done! 💖"

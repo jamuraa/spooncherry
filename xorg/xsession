@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+xset fp+ ${HOME}/.fonts
+xset fp rehash
+
+pasystray &
+nm-applet &
+
+xscreensaver -nosplash &
+
+if [ -x "${HOME}/.xsession.local"]; then
+  source ${HOME}/.xsession.local
+fi
+
+ssh-agent awesome

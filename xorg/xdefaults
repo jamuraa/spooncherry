@@ -1,0 +1,42 @@
+
+urxvt*depth: 32
+urxvt*fading: 0
+urxvt*scrollBar: false
+urxvt*background: rgba:0000/02b0/0360/eeee
+urxvt*foreground: rgb:cc/cc/cc
+urxvt*saveLines: 60000
+urxvt*font: -xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1
+urxvt*boldFont: -xos4-terminesspowerline-bold-r-normal--12-120-72-72-c-60-iso10646-1
+urxvt*iso14755_52: false
+
+! Blue in rxvt on black makes my eyes go OUCH - this is Dodger Blue, which is better
+urxvt*color4: rgb:32/4c/80
+urxvt*color12: rgb:1e/90/ff
+
+Fig.latexfonts: true
+Fig.specialtext: true
+
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+xscreensaver.timeout: 0:05:00
+xscreensaver.lock: True
+xscreensaver.lockTimeout: 0:00:20
+xscreensaver.splash: False
+xscreensaver.timestamp: True
+xscreensaver.nice: 10
+xscreensaver.mode: blank
+xscreensaver.selected: -1
+xscreensaver.fade: True
+xscreensaver.unfade: False
+xscreensaver.fadeSeconds: 0:00:02
+xscreensaver.fadeTicks: 20
+xscreensaver.dpmsEnabled: True
+xscreensaver.dpmsStandby: 0:10:00
+xscreensaver.dpmsSuspend: 0:30:00
+xscreensaver.dpmsOff: 2:00:00
