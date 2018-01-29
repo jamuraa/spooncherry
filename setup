@@ -55,6 +55,20 @@ echo "Installing awesome config.."
 mkdir -p ${installdir}/.config
 cp -rv awesome ${installdir}/.config
 
+# zsh
+echo "Installing prezto zsh and config.."
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${installdir}/.zprezto"
+cp -v zsh/zshrc ${installdir}/.zshrc
+touch ${installdir}/.zshrc.local
+setopt EXTENDED_GLOB
+for rcfile in "${installdir}"/.zprezto/runcoms/^README.md(.N); do
+  if [ ! -e ${installdir}/.${rcfile:t} ]; then
+    ln -s "$rcfile" "${installdir}/.${rcfile:t}"
+  else
+    echo "${rcfile} exists, not replacing.."
+  fi
+done
+
 ## Vicious widgets
 (
   cd ${installdir}/.config/awesome
