@@ -31,6 +31,8 @@ fi
 
 alias durn="du --max-depth=1 -k | sort -rn"
 
+export PATH
+
 if [ -e $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
 fi
