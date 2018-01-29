@@ -68,4 +68,8 @@ echo "Installing backgrounds.."
 mkdir -p ${installdir}/backgrounds
 cp -rv backgrounds/* ${installdir}/backgrounds/
 
+# various config files.
+echo "Copying various other config files.."
+cp -v gitconfig ${installdir}/.gitconfig
+
 echo "Done! 💖"
