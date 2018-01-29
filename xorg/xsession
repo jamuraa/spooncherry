@@ -3,12 +3,14 @@
 xset fp+ ${HOME}/.fonts
 xset fp rehash
 
+setxkbmap -option ctrl:nocaps
+
 pasystray &
 nm-applet &
 
 xscreensaver -nosplash &
 
-if [ -x "${HOME}/.xsession.local"]; then
+if [ -x "${HOME}/.xsession.local" ]; then
   source ${HOME}/.xsession.local
 fi
 
