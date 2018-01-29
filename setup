@@ -6,13 +6,13 @@ if [ "$#" -gt 0 ]; then
   installdir=$1
 fi
 
-if [ "x${installdir}" = "x"]; then
+if [ "x${installdir}" = "x" ]; then
   # Home, I guess.
   if [ "x${HOME}" != "x" ]; then
     installdir=$HOME
   fi
 
-  if [ "x${installdir}" = "x"]; then
+  if [ "x${installdir}" = "x" ]; then
     echo "Can't figure out where to setup your yakshed."
     echo "Tell me: ./setup <installdir>"
     exit 1
@@ -41,6 +41,7 @@ fi
 echo "Installing fonts.."
 mkdir -p ${installdir}/.fonts
 cp -rv fonts/terminess/*.pcf.gz ${installdir}/.fonts
+mkfontdir ${installdir}/.fonts
 xset fp+ ${installdir}/.fonts
 xset fp rehash
 
