@@ -127,11 +127,7 @@ memwidget = wibox.widget.textbox()
 vicious.cache(vicious.widgets.mem)
 vicious.register(memwidget, vicious.widgets.mem, "<span color=\"#268bd2\">$4M $8M</span> ", 13)
 
--- Widget for wireless
-mywireless = wibox.widget.textbox()
-vicious.register(mywireless, vicious.widgets.wifi, "<span color=\"#b58900\">${ssid} ${link}q</span>", 3, "wlp58s0")
-
--- Battery widget 
+-- Battery widget
 batterywidget = wibox.widget.textbox()
 batterywidget:set_markup(" Battery ")
 batterywidgettimer = timer({ timeout = 5 })
@@ -239,7 +235,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             wibox.widget.systray(),
-            mywireless,
             batterywidget,
             memwidget,
             mytextclock,
