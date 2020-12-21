@@ -6,28 +6,13 @@ set shell=/bin/sh
 set nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
-
-" Other Vundles
-Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'godlygeek/tabular'
-Plug 'bling/vim-airline'
-Plug 'bling/vim-bufferline'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-projectionist'
-Plug 'slim-template/vim-slim'
-Plug 'c-brenn/phoenix.vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'dracula/vim'
-
-call plug#end()
+packadd! dracula
 
 filetype plugin indent on
 
+" Airline configuration
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 set nocp
 
@@ -74,6 +59,11 @@ autocmd FileType tex set noai
 autocmd FileType tex set nocin
 autocmd Filetype tex filetype plugin indent off
 
+execute "set t_8f=\e[38;2;%lu;%lu;%lum"
+execute "set t_8b=\e[48;2;%lu;%lu;%lum"
+
+set termguicolors
+
 " Colors!
 syntax enable
 " set background=dark
@@ -84,8 +74,8 @@ set cursorline
 hi Normal ctermbg=None
 hi LineNr ctermbg=None
 " Except, on the current line.
-hi CursorLineNr ctermfg=33 ctermbg=233
-hi CursorLine ctermbg=233
+hi CursorLineNr cterm=bold ctermfg=33 ctermbg=233 guifg=#0087ff guibg=#333333
+hi CursorLine ctermbg=233 guibg=#333333
 
 " Searching hilite and auto-jump
 set incsearch
