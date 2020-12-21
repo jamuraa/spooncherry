@@ -12,6 +12,15 @@ curious, go ahead and take a look.
 ./setup
 ```
 
+## Vim submodules
+
+We use git submodules to store native vim packages.  They should be updated
+periodically.  To do so:
+```
+git submodule update --remote --merge
+git commit -m "Updated submodule pins"
+```
+
 ## License
 
 This code is released under the MIT license, which can be found in LICENSE as well.

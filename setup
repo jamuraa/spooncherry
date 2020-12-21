@@ -45,10 +45,7 @@ done
 # Vim setup
 if [ -x /usr/bin/vim ]; then
   echo "Installing vimrc..."
-  cp -rv vim/vimrc ${installdir}/.vimrc
-  mkdir -p ${installdir}/.vim/autoload
-  cp -rv vim/plug.vim ${installdir}/.vim/autoload
-  vim +PlugInstall +xa
+  cp -rv vim ${installdir}/.vim
 fi
 
 # Fonts setup
