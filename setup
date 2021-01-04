@@ -72,6 +72,11 @@ cp -rv i3 ${installdir}/.config
 cp -rv i3status ${installdir}/.config
 cp -rv rofi ${installdir}/.config
 
+# alacritty
+echo "Installing alacritty config.."
+mkdir -p ${installdir}/.config
+cp -rv alacritty ${installdir}/.config
+
 # backgrounds
 echo "Installing backgrounds.."
 mkdir -p ${installdir}/backgrounds
