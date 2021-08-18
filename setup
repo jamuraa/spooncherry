@@ -56,6 +56,9 @@ cp -rv fonts/terminess/*.pcf.gz ${installdir}/.fonts
 echo " -> Fira Code.."
 curl -L https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip --output FiraCode.zip
 unzip -j FiraCode.zip ttf/\* -d ${installdir}/.fonts
+echo " -> Victor Mono.."
+curl -L https://rubjo.github.io/victor-mono/VictorMonoAll.zip --output VictorMonoAll.zip
+unzip -j VictorMonoAll.zip OTF/\* -d ${installdir}/.fonts
 mkfontdir ${installdir}/.fonts
 xset fp+ ${installdir}/.fonts
 xset fp rehash
@@ -76,6 +79,11 @@ cp -rv rofi ${installdir}/.config
 echo "Installing alacritty config.."
 mkdir -p ${installdir}/.config
 cp -rv alacritty ${installdir}/.config
+
+# starship
+echo "Installing starship config.."
+mkdir -p ${installdir}/.config
+cp -rv starship.toml ${installdir}/.config
 
 # backgrounds
 echo "Installing backgrounds.."

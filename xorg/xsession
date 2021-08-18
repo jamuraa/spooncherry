@@ -8,10 +8,11 @@ setxkbmap -option ctrl:nocaps
 pasystray &
 nm-applet &
 
-xscreensaver -nosplash &
-
 if [ -x "${HOME}/.xsession.local" ]; then
   source ${HOME}/.xsession.local
 fi
 
-ssh-agent awesome
+xset s 300 5
+xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
+
+ssh-agent i3
