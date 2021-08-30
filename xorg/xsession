@@ -6,10 +6,14 @@ xset fp rehash
 setxkbmap -option ctrl:nocaps
 
 pasystray &
-nm-applet &
+nm-tray &
 
 if [ -x "${HOME}/.xsession.local" ]; then
   source ${HOME}/.xsession.local
+fi
+
+if [ -x "${HOME}/backgrounds/set.sh" ]; then
+  ${HOME}/backgrounds/set.sh
 fi
 
 xset s 300 5

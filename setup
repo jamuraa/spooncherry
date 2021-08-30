@@ -90,6 +90,11 @@ echo "Installing backgrounds.."
 mkdir -p ${installdir}/backgrounds
 cp -rv backgrounds/* ${installdir}/backgrounds/
 
+# background setter
+echo "Installing background setter.."
+sudo apt-get -y install nitrogen
+cp -rv nitrogen ${installdir}/nitrogen/
+
 # various config files.
 echo "Copying various other config files.."
 cp -v gitconfig ${installdir}/.gitconfig
